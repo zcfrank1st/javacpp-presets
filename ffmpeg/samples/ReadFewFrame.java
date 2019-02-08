@@ -1,58 +1,3 @@
-JavaCPP Presets for FFmpeg
-==========================
-
-Introduction
-------------
-This directory contains the JavaCPP Presets module for:
-
- * FFmpeg 4.1  http://ffmpeg.org/
-
-Please refer to the parent README.md file for more detailed information about the JavaCPP Presets.
-
-
-Documentation
--------------
-Java API documentation is available here:
-
- * http://bytedeco.org/javacpp-presets/ffmpeg/apidocs/
-
-
-Sample Usage
-------------
-Here is a simple example of FFmpeg ported to Java from this C source file:
-
- * https://github.com/monday0rsunday/ffmpeg-tutorial/blob/master/002_read_few_frame.c
-
-We can use [Maven 3](http://maven.apache.org/) to download and install automatically all the class files as well as the native binaries. To run this sample code, after creating the `pom.xml` and `ReadFewFrame.java` source files below, simply execute on the command line:
-```bash
- $ mvn compile exec:java -Dexec.args="myvideofile.mpg"
-```
-
-### The `pom.xml` build file
-```xml
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>org.bytedeco.ffmpeg</groupId>
-    <artifactId>readfewframe</artifactId>
-    <version>1.5-SNAPSHOT</version>
-    <properties>
-        <exec.mainClass>ReadFewFrame</exec.mainClass>
-    </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.bytedeco</groupId>
-            <artifactId>ffmpeg-platform</artifactId>
-            <version>4.1-1.5-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
-    <build>
-        <sourceDirectory>.</sourceDirectory>
-    </build>
-</project>
-```
-
-### The `ReadFewFrame.java` source file
-```java
 import java.io.*;
 import org.bytedeco.javacpp.*;
 import org.bytedeco.ffmpeg.avcodec.*;
@@ -219,4 +164,3 @@ public class ReadFewFrame {
         System.exit(0);
     }
 }
-```
